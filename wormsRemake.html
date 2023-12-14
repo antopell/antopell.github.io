@@ -26,7 +26,7 @@
 
     <div class="container">
         <div class="row text-start d-flex justify-content-between">
-            <div class="colcol-12 col-sm-9">
+            <div class="colcol-12 col-sm-6">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Projects</a></li>
@@ -36,17 +36,24 @@
             </div>
 
             <!-- cambio de idioma -->
-            <div class="dropdown col-12 col-sm-3 text-center ">
-                <img src="img/languageIcon.svg">
+            <div class="col-12 col-sm-5 text-center d-flex justify-content-end">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="img/languageIcon.svg" height="30vh">
+                    </div>
+                    <div class="col-2 dropdown">
+                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="background-color: #57a199;">
+                            Language
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="#">English</a></li>
+                            <li><a class="dropdown-item" href="#">Español</a></li>
+                        </ul>
+                    </div>
 
-                <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" style="background-color: #57a199;">
-                    Language
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item active" href="#">English</a></li>
-                    <li><a class="dropdown-item" href="#">Español</a></li>
-                </ul>
+                </div>
+
             </div>
         </div>
     </div>

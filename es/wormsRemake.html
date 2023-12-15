@@ -67,48 +67,101 @@
     <div class="container text-start mt-3">
         <h2>Descripción</h2>
         <!-- TODO fijarse si el texto queda mejor con font-monospace en class -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p>Este proyecto lo realizamos en 7 semanas para la materia "Taller de Programación". El objetivo era recrear
+            el juego clásico "Worms" el cual es un juego multijugador con interfaz gráfica. Al ser un proyecto tan grande 
+            y con una duración corta, se nos recomendó dividir el proyecto en 3 partes para cada integrante del grupo pueda 
+            concentrarse en una sección en específico y lograr implementarlo por completo. <br>
+            Fue un proyecto super interesante en el cual aprendimos a utilizar muchas herramientas y también mejoramos nuestro
+            conocimiento de otras además de obtener experiencia trabajando en proyectos grandes sin instrucciones de como implementarlo.
+        </p>
         <h2>Lo que hice</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p>El proyecto al inicio se dividió en parte gráfica/ cliente, server/ juego y protocolo y concurrencia, esta
+            última siendo la sección que decidí implementar. <br>
+            El protocolo tenía 2 dificultades, debía tener un formato claro, el cual no solo me simplifique el uso sino que
+            también debía pensar que si en un futuro alguna persona quiere continuar con el proyecto debe ser capaz de 
+            entender el protocolo sin necesitar de mi presencia. Por esta razón la modularización y creación de métodos que
+            agilicen el envío y obtención de mensajes era crucial. La otra dificultad era testearlo antes de unirlo a las otras
+            secciones del proyecto, ya que al utilizar sockets el testeo no es sencillo y el no testearlo implicaba un problema
+            para mis compañeros, ya que no podían saber si el error era suyo o del protocolo. Por suerte esas dificultades 
+            pudieron superarse y todas las semanas podía agregar los métodos que el resto del equipo necesitaba. Luego para 
+            concurrencia me centré en asegurarme que el server no pierda memoria, es decir, unir todos los hilos en el momento 
+            correcto y liberar memoria que se haya pedido. <br>
+            Ambas tareas (protocolo y concurrencia) eran chicas a comparación con el trabajo de mis compañeros, por lo que empecé
+            a ayudar en otras areas/ tareas y para cuando terminé el proyecto había implementado el menú inicial (creado con QT) 
+            para crear/ unirse a partidas, la configuración con yaml de armas y cliente, daño por caída (y generalización de recibir
+            daño mas el impulso que recibe el gusano herido), parabola de los proyectiles (con su variación en base a la potencia 
+            y como se enviaba el ángulo para graficarlos correctamente), implementación de fragmentos y cambio de características de
+            los proyectiles en base al tipo de arma.
+        </p>
         <h2>Cómo funciona</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p>Primero se debe iniciar el server, luego cada cliente va a poder unirse al server e iniciar el menú principal. Luego que 
+            el cliente (ahora jugador) se haya unido o creado una partida se pasa a la pantalla principal donde se renderiza todo
+            el juego. En este momento se mostrara una pantalla diciendo el id de partida para que otros clientes sepan a que partida
+            unirse y se esperará a que se llegue a la cantidad minima de jugadores para poder iniciar la partida. Una vez que esta
+            la cantidad minima de jugadores, al anfitrión se le dará la posibilidad de iniciar la partida apretando la tecla "C".<br> 
+            Una vez iniciada la partida, se asignan los gusanos disponibles en el mapa aleatoriamente de forma pareja. En caso de 
+            que algún/ algunos jugadores tengan menos gusanos que otros se les da un boost de vida para compensar por la falta
+            de gusanos. Luego, el juego se ejecuta por turnos, en el cual el jugador de turno tiene un gusano (este cambia 
+            cada vez que le toca al jugador a menos de que le quede un solo gusano). Durante el turno puede moverse por el mapa,
+            equiparse armas, recoger cajas de provisiones (que caen aleatoriamente cada cierta cantidad de tiempo) y utilizar un arma. <br>
+            Cada arma tiene características diferentes, algunas tienen potencia y/o angulo variable, otras se les dice donde es el 
+            objetivo clickeando el lugar a atacar/ teletransportarse. Una vez que el gusano ataca, se le dan 3 segundos para moverse
+            y luego se cambia de turno. Si el gusano de turno recibe daño (se cae) o se le termina el tiempo de turno, se pasa de turno.
+            Un detalle importante es que entre turnos se espera a que todos los proyectiles exploten y todos los gusanos esten quietos
+            o muertos/ ahogados ya que se quiere que todos los jugadores tengan un panorama claro de como esta la partida antes del turno. <br>
+            En caso de que no tengas mas gusanos podes seguir viendo la partida y cuando solo queden gusanos de 1 jugador la partida se
+            termina y es en este momento en el que se le muestra una pantalla de victoria o derrota a cada jugador. Luego de un
+            par de segundos se cierra la partida y se termina el juego.<br>
+            Durante la partida se pueden usar "cheats", los cuales implementamos pensando en el testeo del juego y en la diversion
+            de los jugadores.
+        </p>
         <!-- me salteo el 3 para que se note la diferencia -->
         <h4>Tecnologías usadas</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p>El proyecto se realizó en C++ usando librerías para graficar, aplicar la física y testear. <br>
+            Para el testeo se uso catch2 por recomendación de los docentes de la materia. Para la parte gráfica, se utilizó
+            QT para el menú inicial y SDL para el game loop. Luego, para el manejo de físicas se uso box2d. Además es un 
+            proyecto que es multi-thread por la naturaleza de un servidor para un juego donde se espera poder tener mas de
+            una partida al mismo tiempo y además la comunicación entre server y cliente se realiza a traves de sockets.
+            Como es un programa que tiene recursos compartidos entre threads, creamos monitores para asegurar que no existan
+            race conditions (con uso de un mutex). 
+        </p>
         <h2>Preview</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p>Una partida común se vería de la siguiente forma. </p>
+        <div class="row d-flex justify-content-start">
+            <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
+                <p>1. Se inicia el menú. </p>
+                <img class="mt-auto" src="../img/wormsRemake/mainMenu.png" width="100%">
+            </div>
+            <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
+                <p>2. Se elije un mapa entre los posibles.</p>
+                <img class="mt-auto" src="../img/wormsRemake/mapMenu.png" width="100%">
+            </div>
+        </div>
+        <div class="row d-flex justify-content-start">
+            <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
+                <p>3. Se espera a los demás jugadores</p>
+                <img class="mt-auto" src="../img/wormsRemake/waiting.png" width="100%">
+            </div>
+            <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
+                <p>4. Se puede iniciar la partida.</p>
+                <img class="mt-auto" src="../img/wormsRemake/starting.png" width="100%">
+            </div>
+        </div>
+        <div class="row d-flex justify-content-start">
+            <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
+                <p>5. Se juega la partida</p>
+                <img class="mt-auto" src="../img/wormsRemake/game.png" width="100%">
+            </div>
+            <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
+                <p>6. Se termina y te avisa que ganaste!</p>
+                <img class="mt-auto" src="../img/wormsRemake/win.png" width="100%">
+            </div>
+        </div>
         <h2>Links</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p>El proyecto se encuentra con el manual de usuario para saber los controles y cosas 
+            que se pueden hacer y un instalador para facilitar el uso del juego en el siguiente repositorio: 
+            <a href="https://github.com/Los-Socketes/Worms">Ir al código</a>.
+        </p>
     </div>
 
 

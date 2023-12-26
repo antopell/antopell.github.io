@@ -67,26 +67,43 @@
     <div class="container text-start mt-3">
         <h2>Description</h2>
         <!-- TODO fijarse si el texto queda mejor con font-monospace en class -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p> This project was made in 7 weeks for the subject "Taller de programación" (Programming workshop). The goal was to recreate the classic 
+game "Worms" which is a multiplayer game with a graphic interface. Being such a big project and with a short time for development, we were
+adviced to divide the project into 3 parts so that each member of the group could focus on a specific section and completely develop it on their
+ own. <br> 
+It was a super interesting project in which we learnt to use many now tools and also improve our knowledge of others, as well as gaining 
+experience working on large projects without instructions on how to make it. </p>
         <h2>What I did</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p> The project at the beginning was divided into graphic interface/ client, server/ game and protocol and concurrency, the last being
+the section that I decided to develop.<br> 
+The protocol had 2 main difficulties. Fistly, it had to have a clear format that, not only, simplified its use, but it also had to consider the 
+possibility that someone in the future, wanting to continue with the project, should be able to understand it without needing me. For this reason, 
+the modularization and creation of methods that agilize the sending and recieving of messages was crucial. Secondly, it had to be tested
+before joining it with the rest of the code (this was difficult due to the use of sockets) because if I couldn't test it beforehand, my teammates
+wouldn't know whether a bug was due to a mistake in their code or in mine. Luckily, I could overcome those difficulties and every week I
+could develop all the methods that my teammates needed.<br>
+On the other hand, for concurrency I focused on making sure that the server didn't leak memory, that being joining all the threads at the right
+ moment and free the memory.<br>
+Both tasks (protocol and concurrency) were small in comparison to the work of my teammates. Because of that, I began to help with other areas/ tasks
+and at the end of the project I've had developed the main menu (with QT) used for creating/ joining games, the configuration with YAML for the
+weapons and values of the client, the fall damage (and generalization of recieving damage, apart from the impulse that the worm recieve when it gets 
+hurt), the parabole of the projectiles (with its variation based on the power and also how the angle was sent to the client to render it correctly),
+the implementation of the fragments of the weapons and the modification of projectile's characteristics based on the weapon's type. </p>
         <h2>How it works</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien
-            aliquet quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-            sodales, ex vitae scelerisque venenatis, enim eros porta nulla, non volutpat neque ligula nec velit. Nullam
-            non hendrerit massa. Fusce molestie egestas lacinia. In luctus, enim at tincidunt condimentum, nibh odio
-            varius justo, nec auctor enim ante vel velit. Aliquam maximus justo felis, non pulvinar nulla posuere vel.
-            Praesent aliquet feugiat sollicitudin. Morbi malesuada nulla id massa eleifend maximus. </p>
+        <p> Firstly, the server must be started, then each client will be able to connect to the server and start the main menu. After the
+client (now player) has joined or created a game the main window starts, where all the game is renderized. At this moment a screen showing the game 
+id, so that other players can join, is showed. Then, the game will wait until the amount of players reach the minimum needed to be able to start.
+Once that amount is reached, the host will have the option to start the game pressing "C". <br>
+After the game has started, the available worms on the map are assigned evenly at random. If one or multiple players have less worms than the rest
+they are given a life boost to compensate for the lack of worms. The game is then played by turns in which the selected prayer has a playable worm
+(it changes each time the player is selected unless the player has a single worm left). During the turn they can move around the map, select weapons, 
+collect supply boxes (which drop randomly every certain amount of time), and use a weapon.<br>
+Each weapon has different characteristics, some have variable power and/ or angle, others the player selects where the target is by clicking on the map. Once the worm attacks it has 3 seconds to move and then the turn ends. If the playing worm recieves damage (it falls) or the timer finishes,
+the turn ends. An important detail is that between turns the game waits for all the projectiles to explode and for all the worms to be still or 
+dead/ drown because we want all the players to have a clear view of the game before the next turn starts.<br>
+If a player doesn't have any more worms left they can continue to see the game and when there are only worms from a singular player the game ends and 
+the game shows a victory or defeat screen to each player. After a couple of seconds the game ends and closes. <br>
+During the game you can use "cheats", which we developed thinking about the testing of the game and the fun of the players </p>
         <!-- me salteo el 3 para que se note la diferencia -->
         <h4>Used technologies</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet dictum felis, vel porttitor sapien

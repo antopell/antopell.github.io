@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body style="background-color: #bcd1c7;">
+<body>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
     <!-- foto principal -->
-    <div style="width: 100%; height: 25vh;">
-        <img src="../img/banner.jpeg" style="object-fit: cover; height: 100%; width: 100%;">
+    <div class="banner">
+        <img src="../img/banner.jpeg" alt="banner">
     </div>
 
     <!-- separador -->
@@ -114,34 +114,34 @@ have more than one ongoing game, and the communication between the server and th
 resources between threads, we developed monitors (with the use of mutex) to ensure that the program won't encounter any race conditions. </p>
         <h2>Preview</h2>        
         <p> A usual game would have the following steps. </p>
-        <div class="row d-flex justify-content-start">
+        <div class="row d-flex justify-content-start preview">
             <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
                 <p>1. The menu starts. </p>
-                <img class="mt-auto" src="../img/wormsRemake/mainMenu.png" width="100%">
+                <img class="mt-auto" src="../img/wormsRemake/mainMenu.png" alt="Screenshot of the main menu.">
             </div>
             <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
                 <p>2. You choose an available map.</p>
-                <img class="mt-auto" src="../img/wormsRemake/mapMenu.png" width="100%">
+                <img class="mt-auto" src="../img/wormsRemake/mapMenu.png" alt="Screenshot of the menu with the available maps.">
             </div>
         </div>
-        <div class="row d-flex justify-content-start">
+        <div class="row d-flex justify-content-start preview">
             <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
                 <p>3. You wait for the other players.</p>
-                <img class="mt-auto" src="../img/wormsRemake/waiting.png" width="100%">
+                <img class="mt-auto" src="../img/wormsRemake/waiting.png" alt="Screenshot while waiting for the other players to join.">
             </div>
             <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
                 <p>4. You can start the game.</p>
-                <img class="mt-auto" src="../img/wormsRemake/starting.png" width="100%">
+                <img class="mt-auto" src="../img/wormsRemake/starting.png" alt="Screenshot of when you can start the game.">
             </div>
         </div>
-        <div class="row d-flex justify-content-start">
+        <div class="row d-flex justify-content-start preview">
             <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
                 <p>5. You play the game.</p>
-                <img class="mt-auto" src="../img/wormsRemake/game.png" width="100%">
+                <img class="mt-auto" src="../img/wormsRemake/game.png" alt="Screenshot of when the game starts.">
             </div>
             <div class="col-12 col-sm-6 mx-auto h-100 mb-4">
                 <p>6. It ends and shows you that you won!</p>
-                <img class="mt-auto" src="../img/wormsRemake/win.png" width="100%">
+                <img class="mt-auto" src="../img/wormsRemake/win.png" alt="Screenshot of when the game ends.">
             </div>
         </div>
         <h2>Links</h2>

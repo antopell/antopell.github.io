@@ -1,0 +1,14 @@
+.contact-section {
+    width: 100%;
+    height: 20vh;
+    background-color: #044740;
+    padding-top: 3vh;
+}
+
+.contact-section h5 {
+    color: white;
+}
+
+.contact-section img {
+    height: 6vh;
+}

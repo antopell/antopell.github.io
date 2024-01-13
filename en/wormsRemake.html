@@ -69,16 +69,16 @@
         <!-- TODO fijarse si el texto queda mejor con font-monospace en class -->
         <p> This project was made in 7 weeks for the subject "Taller de programación" (Programming workshop). The goal was to recreate the classic 
 game "Worms" which is a multiplayer game with a graphic interface. Being such a big project and with a short time for development, we were
-adviced to divide the project into 3 parts so that each member of the group could focus on a specific section and completely develop it on their
+advised to divide the project into 3 parts so that each member of the group could focus on a specific section and completely develop it on their
  own. <br> 
 It was a super interesting project in which we learnt to use many now tools and also improve our knowledge of others, as well as gaining 
 experience working on large projects without instructions on how to make it. </p>
         <h2>What I did</h2>
         <p> The project at the beginning was divided into graphic interface/ client, server/ game and protocol and concurrency, the last being
 the section that I decided to develop.<br> 
-The protocol had 2 main difficulties. Fistly, it had to have a clear format that, not only, simplified its use, but it also had to consider the 
+The protocol had 2 main difficulties. Firstly, it had to have a clear format that, not only, simplified its use, but it also had to consider the 
 possibility that someone in the future, wanting to continue with the project, should be able to understand it without needing me. For this reason, 
-the modularization and creation of methods that agilize the sending and recieving of messages was crucial. Secondly, it had to be tested
+the modularization and creation of methods that facilitate the sending and receiving of messages was crucial. Secondly, it had to be tested
 before joining it with the rest of the code (this was difficult due to the use of sockets) because if I couldn't test it beforehand, my teammates
 wouldn't know whether a bug was due to a mistake in their code or in mine. Luckily, I could overcome those difficulties and every week I
 could develop all the methods that my teammates needed.<br>
@@ -86,13 +86,13 @@ On the other hand, for concurrency I focused on making sure that the server didn
  moment and free the memory.<br>
 Both tasks (protocol and concurrency) were small in comparison to the work of my teammates. Because of that, I began to help with other areas/ tasks
 and at the end of the project I've had developed the main menu (with QT) used for creating/ joining games, the configuration with YAML for the
-weapons and values of the client, the fall damage (and generalization of recieving damage, apart from the impulse that the worm recieve when it gets 
-hurt), the parabole of the projectiles (with its variation based on the power and also how the angle was sent to the client to render it correctly),
+weapons and values of the client, the fall damage (and generalization of receiving damage, apart from the impulse that the worm recieve when it gets 
+hurt), the parabola of the projectiles (with its variation based on the power and also how the angle was sent to the client to render it correctly),
 the implementation of the fragments of the weapons and the modification of projectile's characteristics based on the weapon's type. </p>
         <h2>How it works</h2>
         <p> Firstly, the server must be started, then each client will be able to connect to the server and start the main menu. After the
-client (now player) has joined or created a game the main window starts, where all the game is renderized. At this moment a screen showing the game 
-id, so that other players can join, is showed. Then, the game will wait until the amount of players reach the minimum needed to be able to start.
+client (now player) has joined or created a game the main window starts, where all the game is rendered. At this moment a screen showing the game 
+id, so that other players can join, is shown. Then, the game will wait until the amount of players reach the minimum needed to be able to start.
 Once that amount is reached, the host will have the option to start the game pressing "C". <br>
 After the game has started, the available worms on the map are assigned evenly at random. If one or multiple players have less worms than the rest
 they are given a life boost to compensate for the lack of worms. The game is then played by turns in which the selected prayer has a playable worm
@@ -107,7 +107,7 @@ During the game you can use "cheats", which we developed thinking about the test
         <!-- me salteo el 3 para que se note la diferencia -->
         <h4>Used technologies</h4>
         <p> The project was developed in C++ using libraries to render, apply physics and test it.<br> 
-For testing we used Catch2 as recommended by the profesors. For the graphical interface we used QT for the main menu and SDL for the game loop.
+For testing we used Catch2 as recommended by the professors. For the graphical interface we used QT for the main menu and SDL for the game loop.
 Also, for the physics we used box2d. Furthermore, it's a multi-thread project, by the nature of a game server where it's expected to be able to 
 have more than one ongoing game, and the communication between the server and the client is through sockets. As this project has shared 
 resources between threads, we developed monitors (with the use of mutex) to ensure that the program won't encounter any race conditions. </p>
@@ -145,7 +145,7 @@ resources between threads, we developed monitors (with the use of mutex) to ensu
         </div>
         <h2>Links</h2>
         <p> The project can be found, with an user manual in spanish to know the controls and what you can do and an installer to make playing
- the game easier, in the following repository: <a href="https://github.com/Los-Socketes/Worms"> Go to the code</a> </p>
+ the game easier, in the following repository: <a href="https://github.com/Los-Socketes/Worms"> Go to the code.</a> </p>
     </div>
 
 
